@@ -1,0 +1,25 @@
+Sub MoveFiles()
+    fileLocation = "/Users/wynandgoosen/Downloads/SULL/Drive/About/" 'change to the top level parent folder
+    
+    Range("A2").Select
+    
+    'loop through all records in the list
+    'identifieswhich have been marked as archive
+    'move the marked files to the ARCHIVE folder
+    
+    Do While ActiveCell.Value <> ""
+        If ActiveCell.Offset(0, 3).Value = "Move" Then
+            Name ActiveCell.Offset(0, 2).Value & "/" & ActiveCell.Offset(0, 1).Value As _
+            fileLocation & ActiveCell.Value & "/" & ActiveCell.Offset(0, 1).Value
+    
+    On Error Resume Next
+    
+    ActiveCell.Offset(0, 2).Value = fileLocation
+    ActiveCell.Offset(0, 3).Value = "YES"
+    
+    End If
+    
+    ActiveCell.Offset(1, 0).Select
+    Loop
+    
+End Sub••••ˇˇˇˇ
